@@ -1,0 +1,92 @@
+/* Ajustes generales */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkorange;
+    height: 100vh;
+}
+
+.calculator {
+    width: 400px;
+    height: 630px;
+    background-color: beige;
+}
+
+/* Ajustes del display wen i metchu in de sama wid my heart bit sound*/
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    background-color: dimgray;
+}
+
+.display-center{
+    width: 85%;
+    height: 75%;
+    background-color: gainsboro;
+}
+
+.output  {
+    height: 50%;
+    display: block;
+    padding-right: 30px;
+    text-align: right;
+}
+
+.salida{
+    font-size: 22px;
+    line-height: 3.2;
+}
+
+.entrada {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 2.2;
+}
+
+/* Ajustes de botones  jeje sing with me wing for the nini ....*/
+
+.buttons {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    height: 75%;
+    background-color: dimgrey;
+}
+
+.buttons-centered{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+.buttons-centered > button{
+    border-radius: 20px;
+    background-color: wheat;
+    font-size: 25px;
+}
+
+.ac {
+    grid-column: 1/ span 2;
+}
+
+.zero {
+    grid-column: 1 /span 2;
+}
+/* Aqui va el crack del footer */
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100vw;
+    text-align: center;
+    font-size: 40px;
+    background-color: beige;
+}
+  
