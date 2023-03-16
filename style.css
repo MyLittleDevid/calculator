@@ -38,12 +38,12 @@ body {
     text-align: right;
 }
 
-.salida{
+.entrada{
     font-size: 25px;
     line-height: 3.2;
 }
 
-.entrada {
+.salida {
     font-weight: bold;
     font-size: 30px;
     line-height: 2.2;
