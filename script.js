@@ -29,7 +29,7 @@ const multiplicar = (numero1, numero2) => {
   
 const dividir = (numero1, numero2) =>{
     if(numero1 == 0)return 0;
-    if(numero2 == 0)return "Luis es gay";
+    if(numero2 == 0)return "";
     let div = numero1/numero2;
     return redondear1Decimal(div);
 }
@@ -121,4 +121,5 @@ const operar = ()=>{
 const mostrarOperacion = ()=>{
     num1 = result; num2="";operador ="";
     abajo.textContent= result;
+    if(num1 == "")abajo.textContent= "Luis es gay";
 }
