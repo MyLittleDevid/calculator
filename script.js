@@ -3,7 +3,7 @@
 let num1 = "";
 let num2 = "";
 let operador = "";
-let result = "";
+let result = 0;
 
 /* Elementos del DOM a modificar */
 
@@ -29,7 +29,7 @@ const multiplicar = (numero1, numero2) => {
   
 const dividir = (numero1, numero2) =>{
     if(numero1 == 0)return 0;
-    if(numero2 == 0)return "No se puede divir entre cero";
+    if(numero2 == 0)return "Luis es gay";
     let div = numero1/numero2;
     return redondear1Decimal(div);
 }
@@ -39,26 +39,40 @@ const redondear1Decimal = (resultado) =>{
     return Number(resultadoDecimal);
 }
 
-/* Funciones del boton AC y E*/
+/* Funciones del boton AC ,E y añadirComa*/
 
 const refrescar = ()=>{
-    num1=""; num2=""; operador="";result="";
+    num1=""; num2=""; operador="";result=0;
     arriba.textContent= "0"; abajo.textContent="0";
 }
 
-const eliminarUltimo = ()=>{};
+const eliminarUltimo = ()=>{
+    if(operador !="") num2 = Math.floor(num2 / 10);arriba.textContent=`${num1}`;
+    if(operador =="") num1 = Math.floor(num1 / 10);arriba.textContent=`${num1}${operador}${num2}`;
+};
+
+const añadirComa= ()=>{
+    if(operador !=""){
+        if(num2.toString().includes("."))return;
+        num2 = num2.toString() +".";
+        arriba.textContent=`${num1}${operador}${num2}`;
+    };
+    if(operador ==""){
+        if(num1.toString().includes("."))return;
+        num1 = num1.toString() + "."
+        arriba.textContent=`${num1}`;
+    };
+}
 
 /* Funciones que se encargen de actualizar el display */
 
 const añadirNumero = (numero)=> {
     if(operador == ""){
         num1 = num1.toString() + numero.toString();
-        num1 = parseFloat(num1);
         arriba.textContent=`${num1}`;
     };
     if(operador != ""){
         num2 = num2.toString() + numero.toString();
-        num2 = parseFloat(num2);
         arriba.textContent=`${num1}${operador}${num2}`
     };
 };
@@ -66,10 +80,12 @@ const añadirNumero = (numero)=> {
 const añadirOperador = (operator)=>{
     if(operador != ""){
         if(num2 =="")num2=0;
+        arriba.textContent=`${num1}${operador}${num2}`
         operar();
     }
     if(operador == ""){
         if(num1 == "")num1 =0;
+        arriba.textContent=`${num1}`;
         operador = operator;
     };
 };
@@ -77,21 +93,32 @@ const añadirOperador = (operator)=>{
 /* Funcion que opera */
 
 const operar = ()=>{
+    num1 = parseFloat(num1);
+    if(num2 =="")num2=0;
+    num2 = parseFloat(num2);
     switch(operador){
         case "":;
             break;
 
         case "+": result = sumar(num1,num2);
-            abajo.textContent= result;
+                mostrarOperacion();
             break;
 
-        case "-":;
+        case "-":result = restar(num1,num2);
+                mostrarOperacion();
             break;
 
-        case "*":;
+        case "*":result = multiplicar(num1, num2);
+                mostrarOperacion();
             break;
 
-        case "/":;
+        case "/": result = dividir(num1, num2);
+                mostrarOperacion();
             break;
     }
 };
+
+const mostrarOperacion = ()=>{
+    num1 = result; num2="";operador ="";
+    abajo.textContent= result;
+}
