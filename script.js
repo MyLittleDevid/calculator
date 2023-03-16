@@ -10,7 +10,6 @@ let result = 0;
 const arriba = document.querySelector(".salida");
 const abajo = document.querySelector(".entrada");
 
-
 /* Funciones de operaciones*/
 
 const sumar = (numero1, numero2) => {
@@ -42,8 +41,10 @@ const redondear1Decimal = (resultado) =>{
 
 /* Funciones del boton AC y E*/
 
-
-
+const refrescar = ()=>{
+    num1=0; num2=0; operador="";result=0;
+    arriba.textContent= "0"; abajo.textContent="0";
+}
 
 /* Funciones que se encargen de actualizar el display */
 
