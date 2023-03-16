@@ -39,13 +39,13 @@ body {
 }
 
 .salida{
-    font-size: 22px;
+    font-size: 25px;
     line-height: 3.2;
 }
 
 .entrada {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
     line-height: 2.2;
 }
 
@@ -63,13 +63,30 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto;
     width: 85%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .buttons-centered > button{
     border-radius: 20px;
     background-color: wheat;
     font-size: 25px;
+}
+
+button:active {
+    animation-name: pulsar;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+  
+/* Definición de la animación */
+@keyframes pulsar {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.9);
+    }
 }
 
 .ac {
