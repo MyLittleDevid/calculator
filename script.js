@@ -1,14 +1,14 @@
 /* Variables globales*/
 
-let num1 = 0;
-let num2 = 0;
+let num1 = "";
+let num2 = "";
 let operador = "";
-let result = 0;
+let result = "";
 
 /* Elementos del DOM a modificar */
 
-const arriba = document.querySelector(".salida");
-const abajo = document.querySelector(".entrada");
+const arriba = document.querySelector(".entrada");
+const abajo = document.querySelector(".salida");
 
 /* Funciones de operaciones*/
 
@@ -42,13 +42,56 @@ const redondear1Decimal = (resultado) =>{
 /* Funciones del boton AC y E*/
 
 const refrescar = ()=>{
-    num1=0; num2=0; operador="";result=0;
+    num1=""; num2=""; operador="";result="";
     arriba.textContent= "0"; abajo.textContent="0";
 }
 
+const eliminarUltimo = ()=>{};
+
 /* Funciones que se encargen de actualizar el display */
 
+const añadirNumero = (numero)=> {
+    if(operador == ""){
+        num1 = num1.toString() + numero.toString();
+        num1 = parseFloat(num1);
+        arriba.textContent=`${num1}`;
+    };
+    if(operador != ""){
+        num2 = num2.toString() + numero.toString();
+        num2 = parseFloat(num2);
+        arriba.textContent=`${num1}${operador}${num2}`
+    };
+};
 
-
+const añadirOperador = (operator)=>{
+    if(operador != ""){
+        if(num2 =="")num2=0;
+        operar();
+    }
+    if(operador == ""){
+        if(num1 == "")num1 =0;
+        operador = operator;
+    };
+};
 
 /* Funcion que opera */
+
+const operar = ()=>{
+    switch(operador){
+        case "":;
+            break;
+
+        case "+": result = sumar(num1,num2);
+            abajo.textContent= result;
+            break;
+
+        case "-":;
+            break;
+
+        case "*":;
+            break;
+
+        case "/":;
+            break;
+    }
+};
